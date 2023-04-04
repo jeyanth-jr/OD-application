@@ -1,0 +1,81 @@
+/* Reset default browser styling for the page */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the header and main content */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+/* Style the new OD form */
+button, form {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;  
+}
+
+.form {
+  display: none;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type="date"], input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.form {
+  display: none;
+}
