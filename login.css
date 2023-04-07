@@ -1,8 +1,13 @@
 body {
-    background-color: #f5f5f5;
+    background-image: url('https://img.freepik.com/free-vector/dark-polygonal-background_1409-878.jpg?w=1060&t=st=1680844374~exp=1680844974~hmac=49d35091fd090deac68ab3032e6b75ac0e9d018736a1f17c30dc8d8f2b8eae7d');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     font-family: sans-serif;
+    height: 100vh;
     text-align: center;
 }
+
 
 form {
     background-color: #fff;
@@ -11,26 +16,27 @@ form {
     padding: 20px;
     width: 500px;
     margin: 50px auto;
+    animation: formAnimation 0.5s ease;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    width: 90%;
     border-radius: 5px;
     border: none;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
 
 input[type="submit"] {
-    background-color: #0095ff;
+    background-color: #3cb371;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0077d8;
+    background-color: #2e8b57;
 }
 
 /* Animations */
@@ -44,7 +50,27 @@ input[type="submit"]:hover {
         transform: translateY(0);
     }
 }
-
-form {
-    animation: formAnimation 0.5s ease;
+h1{
+    color:white;
+  }
+  p{
+    color:white;
+  }
+a:visited{
+    color: #fff;
+}
+a{
+    color: #fff;
+}
+.heart-icon {
+    color: red;
+  }
+  footer {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
 }
