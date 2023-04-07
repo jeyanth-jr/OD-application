@@ -8,16 +8,16 @@
 
 <body>
 	<div class="container">
-		<h1>Create an Account</h1>
+		<h1>Create a new account now!</h1>
 		<form action="" method="POST">
 			<div class="input-container">
 				<input type="text" name="name" placeholder="Name" required>
 			</div>
 			<div class="input-container">
-				<input type="text" name="username" placeholder="Username" required>
+				<input type="email" name="mailid" placeholder="Email" required>
 			</div>
 			<div class="input-container">
-				<input type="email" name="mailid" placeholder="Email" required>
+				<input type="text" name="rollno" placeholder="Roll no" required>
 			</div>
 			<div class="input-container">
 				<input type="password" name="password" placeholder="Password" required>
@@ -32,8 +32,8 @@
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			// retrieve form data
 			$name = $_POST['name'];
-			$username = $_POST['username'];
 			$email = $_POST['mailid'];
+			$roll_no = $_POST['rollno'];
 			$password = $_POST['password'];
 			$cpassword = $_POST['cpassword'];
 			if ($password != $cpassword) {
@@ -51,13 +51,13 @@
 			}
 
 			// check if username already exists
-			$query = "SELECT * FROM login_data WHERE username='$username'";
+			$query = "SELECT * FROM login_data WHERE roll_no='$roll_no'";
 			$result = mysqli_query($conn, $query);
 			if (mysqli_num_rows($result) > 0) {
 				echo '<span style="color: red;">Username already taken</span>';
 			} else {
 				// insert new user into database
-				$query = "INSERT INTO login_data VALUES ('$name', '$username', '$password', '$email', 'user')";
+				$query = "INSERT INTO login_data VALUES ('$name', '$password', '$email', 'user','$roll_no')";
 				$result = mysqli_query($conn, $query);
 				if ($result) {
 					// redirect to welcome page
