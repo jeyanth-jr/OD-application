@@ -1,46 +1,82 @@
 body {
-    background-color: #f5f5f5;
+    background-image: url('https://img.freepik.com/free-vector/realistic-polygonal-background_52683-61087.jpg?w=1060&t=st=1680762081~exp=1680762681~hmac=30e48923ec9a8382f9e44e8cab4fbf5ab11feb0c8187e6ca0af933322c66616b');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     font-family: sans-serif;
+    height: 100vh;
     text-align: center;
 }
 
 form {
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     padding: 20px;
     width: 500px;
     margin: 50px auto;
+    animation: formAnimation 0.5s ease;
+    transition: all 0.3s ease;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+form:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    width: 90%;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-shadow: 0 1px 1px rgba(255, 252, 252, 0.1);
+    transition: all 0.3s ease;
 }
 
 input[type="submit"] {
     background-color: #0095ff;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
     background-color: #0077d8;
 }
 
-.error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+
+
+input[type="text"]:valid:not(:focus),
+input[type="email"]:valid:not(:focus),
+input[type="password"]:valid:not(:focus) {
+    border-color: green;
+}
+
+input[type="text"]:invalid:not(:focus) + .error,
+input[type="email"]:invalid:not(:focus) + .error,
+input[type="password"]:invalid:not(:focus) + .error {
+    display: block;
+}
+
+input[type="text"]:valid:not(:focus) + .success,
+input[type="email"]:valid:not(:focus) + .success,
+input[type="password"]:valid:not(:focus) + .success {
+    display: block;
+}
+
+.error,
 .success {
-    color: green;
+    display: none;
+    color: #666;
     font-size: 12px;
     margin-top: 5px;
 }
@@ -56,7 +92,15 @@ input[type="submit"]:hover {
         transform: translateY(0);
     }
 }
-
-form {
-    animation: formAnimation 0.5s ease;
+h1{
+    color:rgb(241, 200, 35);
+  }
+  p{
+    color:white;
+  }
+a:visited{
+    color: #ecd20f;
+}
+a{
+    color: #fff;
 }
