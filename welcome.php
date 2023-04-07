@@ -9,13 +9,17 @@
 <body>
     <?php
     session_start();
+    if (isset($_SESSION['od_requested'])) {
+        echo "<script>alert('OD request sent');</script>";
+        unset($_SESSION['od_requested']);
+    }
     $dbhost = 'localhost';
     $dbname = 'OD';
     $dbusername = 'root';
     $dbpassword = '2003';
     $conn = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname);
     $uname = $_SESSION['username'];
-    $query = "SELECT name FROM login_data WHERE username='$uname'";
+    $query = "SELECT name FROM login_data WHERE roll_no='$uname'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -23,7 +27,7 @@
     } else {
         header("Location:login.php");
     }
-    $query1 = "select * from od_info where username='$uname';";
+    $query1 = "select * from od_info where roll_no='$uname';";
     if (mysqli_num_rows(mysqli_query($conn, $query1)) > 0) {
         echo "<h2>OD details</h2>";
         echo '<table>';
@@ -55,16 +59,20 @@
         $date = $_POST["date"];
         $event_name = $_POST["event-name"];
         $org_institution = $_POST["organizing-institution"];
-        $query3 = "INSERT INTO od_info VALUES('$uname','$date','$event_name','$org_institution','no','no');";
-        $result = mysqli_query($conn, $query3);
-        echo $result;
+        $query3 = "INSERT INTO od_info (date, event_name, org_institution, level1, level2, roll_no) VALUES ('$date', '$event_name', '$org_institution', 'no', 'no', '$uname')";
         if (mysqli_query($conn, $query3)) {
-            echo "OD request sent";
+            // Insert successful, redirect to the same page
+            $_SESSION['od_requested'] = true;
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
         } else {
             echo "OD request failed";
+            echo mysqli_error($conn);
         }
+
     }
     ?>
+
     <script>
         function toggleForm() {
             var form = document.getElementById("od-form");
